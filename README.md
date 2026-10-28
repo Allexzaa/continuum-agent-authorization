@@ -43,4 +43,7 @@ tests, verifier, reports, release metadata); `voice-agent/` (final version of th
 
 ## License
 Code (research harness, scorer, verifier, tests, and the agent loop `llm.py` with stubbed integrations): **MIT** (`LICENSE`). Reports, tables, documentation, case fixtures, run logs and the redacted prompt: **CC BY 4.0** (`LICENSE-DATA.md`).
-`LICENSES.md` maps each folder to its license. The real tool integrations and any model weights are not included. Copyright (c) 2026 Alex Zare.
+`LICENSES.md` maps each folder to its license. The real tool integrations and any model weights are not included. Copyright (c) 2026 Lexzium AI.
+
+## Authorship and AI assistance
+The research design, the decisions and the review of results are the author's. The harness, tests, verifier and many fixes to the agent loop were written with Claude Code (Anthropic's coding assistant) under the author's direction. The agent (Persia) was written by the author.
