@@ -17,7 +17,7 @@ Bundle checked: `reproducibility_bundle`. No model was run for this report.
 | No simulated result described as a real-world incident | PASS | flagged phrases: none |
 | No unfinished experiment presented as completed | PASS | flagged: none (Experiment 1 documents do not mention Studies 02 or 03) |
 | Released files contain only synthetic data; no credentials or personal data patterns | PASS | files with matches: none |
-| SHA-256 manifest verifies | PASS | 121 files; mismatches: none |
+| SHA-256 manifest verifies | PASS | 123 files; mismatches: none |
 
 **14 of 14 checks passed.**
 
@@ -27,6 +27,8 @@ Bundle checked: `reproducibility_bundle`. No model was run for this report.
 - Recorded model rounds are truncated to 2,000 characters; planner calls and empty-final recovery text were not stored; exact historical replay is not claimed.
 - The fine-tuned `persia-f16` weights are not part of the release; only the Gemma arms can be re-run by others.
 - The 21 denial-run labels (5 inaccurate completion claims) are from one reader; the independent reading is pending (blind sheet prepared).
+- The planner step ran for persia-f16 but returned empty text for gemma4:12b in most planner-triggering prompts (8 of 10 in a later probe); Study 01 did not log planner output, so which runs had a plan is reconstructed, not recorded. A later diagnostic found it did not explain persia-f16's low attempt rate.
+- persia-f16's fine-tuning data contains 14 of about 1,300 examples that ignore injected instructions in tool results; this may contribute to its low attempt rate and cannot be isolated (the base model never called tools).
 - The case set is small and hand-written; no adaptive attacker; condition C is oracle-scoped (an upper bound, not a deployable control).
 - No license chosen; until one is added all rights are reserved. Reference audit is not applicable to this study's documents (no literature claims are made in them).
 - Git tag for the release is created after the working tree is committed on the research branch.
