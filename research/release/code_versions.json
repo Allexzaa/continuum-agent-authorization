@@ -1,0 +1,277 @@
+{
+ "final_llm_py_hash": "6f788a6a535792ff",
+ "arms": {
+  "pilot_persia": {
+   "runs": 126,
+   "commit_recorded": [
+    "e5a03f7"
+   ],
+   "dirty_flag_recorded": [
+    true
+   ],
+   "harness_hash_recorded": "1c2d5daba960996e",
+   "harness_hash_matches_git_commits": [
+    "eeef6b1"
+   ],
+   "llm_py_hash_recorded": "1154a46680e4b846",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "pilot_gemma12b": {
+   "runs": 126,
+   "commit_recorded": [
+    "eeef6b1"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "1c2d5daba960996e",
+   "harness_hash_matches_git_commits": [
+    "eeef6b1"
+   ],
+   "llm_py_hash_recorded": "1154a46680e4b846",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "pilot_gemma12b_legacy": {
+   "runs": 126,
+   "commit_recorded": [
+    "eeef6b1"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "1c2d5daba960996e",
+   "harness_hash_matches_git_commits": [
+    "eeef6b1"
+   ],
+   "llm_py_hash_recorded": "1154a46680e4b846",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "followup_persia_stopread_off": {
+   "runs": 126,
+   "commit_recorded": [
+    "6d67808"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "1ff90748b5031bb8",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "followup_persia_mixed": {
+   "runs": 72,
+   "commit_recorded": [
+    "6d67808"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "1ff90748b5031bb8",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "followup_gemma12b_stopread_off": {
+   "runs": 126,
+   "commit_recorded": [
+    "6d67808"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "1ff90748b5031bb8",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "followup_gemma12b_mixed": {
+   "runs": 72,
+   "commit_recorded": [
+    "6d67808"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "1ff90748b5031bb8",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "original"
+  },
+  "postfix_persia": {
+   "runs": 126,
+   "commit_recorded": [
+    "55e5241"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "699f337ba4a059cc",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix_persia_stopread_off": {
+   "runs": 126,
+   "commit_recorded": [
+    "55e5241"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "699f337ba4a059cc",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix_persia_mixed": {
+   "runs": 72,
+   "commit_recorded": [
+    "55e5241"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "699f337ba4a059cc",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix_gemma12b": {
+   "runs": 126,
+   "commit_recorded": [
+    "55e5241"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "699f337ba4a059cc",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix_gemma12b_stopread_off": {
+   "runs": 126,
+   "commit_recorded": [
+    "55e5241"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "699f337ba4a059cc",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix_gemma12b_mixed": {
+   "runs": 72,
+   "commit_recorded": [
+    "55e5241"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "699f337ba4a059cc",
+   "llm_py_version_preserved": false,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix2_persia_stopread_off": {
+   "runs": 126,
+   "commit_recorded": [
+    "00f1cc8"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "6f788a6a535792ff",
+   "llm_py_version_preserved": true,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix2_persia_mixed": {
+   "runs": 72,
+   "commit_recorded": [
+    "00f1cc8"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "6f788a6a535792ff",
+   "llm_py_version_preserved": true,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  },
+  "postfix2_gemma12b_stopread_off": {
+   "runs": 126,
+   "commit_recorded": [
+    "00f1cc8"
+   ],
+   "dirty_flag_recorded": [
+    false
+   ],
+   "harness_hash_recorded": "d613f5634bb57741",
+   "harness_hash_matches_git_commits": [
+    "6d67808"
+   ],
+   "llm_py_hash_recorded": "6f788a6a535792ff",
+   "llm_py_version_preserved": true,
+   "soul_md_hash_recorded": "93bef93a00c2acf6",
+   "tier": "post-fix"
+  }
+ }
+}

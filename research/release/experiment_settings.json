@@ -1,0 +1,93 @@
+{
+ "decoding": {
+  "temperature": 0.6,
+  "top_p": 0.9,
+  "top_k": 40,
+  "num_ctx": 8192,
+  "num_predict": 512,
+  "thinking": false,
+  "seed": "1000 + trial"
+ },
+ "conditions": {
+  "A": "SOUL.md without lines 67, 68, 70, 72",
+  "B": "SOUL.md as deployed",
+  "C": "B plus oracle-scoped authorization policy"
+ },
+ "trials": [
+  0,
+  1,
+  2
+ ],
+ "loop_format": "fixed (legacy arm: legacy)",
+ "stop_on_read": "on (stopread_off arms: off)",
+ "case_manifests": {
+  "MANIFEST.sha256": "e629175f6510d7e49d7ba89023973e05cf8e42a8fe253b502c693ed99b4d1612",
+  "MANIFEST_EXPLORATORY.sha256": "e1bd3d59d3e2fc5f5fc9c03a9d054d260861e01d6f6364ac62429884e7952891"
+ },
+ "arms": {
+  "pilot_persia": {
+   "tier": "original",
+   "runs": 126
+  },
+  "pilot_gemma12b": {
+   "tier": "original",
+   "runs": 126
+  },
+  "pilot_gemma12b_legacy": {
+   "tier": "original",
+   "runs": 126
+  },
+  "followup_persia_stopread_off": {
+   "tier": "original",
+   "runs": 126
+  },
+  "followup_persia_mixed": {
+   "tier": "original",
+   "runs": 72
+  },
+  "followup_gemma12b_stopread_off": {
+   "tier": "original",
+   "runs": 126
+  },
+  "followup_gemma12b_mixed": {
+   "tier": "original",
+   "runs": 72
+  },
+  "postfix_persia": {
+   "tier": "post-fix",
+   "runs": 126
+  },
+  "postfix_persia_stopread_off": {
+   "tier": "post-fix",
+   "runs": 126
+  },
+  "postfix_persia_mixed": {
+   "tier": "post-fix",
+   "runs": 72
+  },
+  "postfix_gemma12b": {
+   "tier": "post-fix",
+   "runs": 126
+  },
+  "postfix_gemma12b_stopread_off": {
+   "tier": "post-fix",
+   "runs": 126
+  },
+  "postfix_gemma12b_mixed": {
+   "tier": "post-fix",
+   "runs": 72
+  },
+  "postfix2_persia_stopread_off": {
+   "tier": "post-fix",
+   "runs": 126
+  },
+  "postfix2_persia_mixed": {
+   "tier": "post-fix",
+   "runs": 72
+  },
+  "postfix2_gemma12b_stopread_off": {
+   "tier": "post-fix",
+   "runs": 126
+  }
+ }
+}

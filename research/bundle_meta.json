@@ -93,6 +93,11 @@
  },
  "arms": [
   {
+   "arm": "_interrupted_pilot_persia_24runs",
+   "runs": 24,
+   "kind": "archived, interrupted and unused: excluded from every result"
+  },
+  {
    "arm": "audit1",
    "runs": 56,
    "kind": "capability audit (not reportable)"

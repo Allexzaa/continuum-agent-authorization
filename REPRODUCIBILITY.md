@@ -6,12 +6,13 @@ Everything needed to re-score, re-check and replay the reported results, minus w
 the `postfix2_*` runs. Hashes of earlier versions identify what ran but do not recover its behavior. The research harness is recoverable from git. Recorded model output is
 truncated to 2,000 characters per round, and planner calls and empty-final recovery text were not stored, so exact historical replay is not claimed. Run categories are kept
 separate: 774 original scored runs (252 confirmatory, 126 exploratory legacy-loop, 396 post hoc); post-fix re-runs are 972 records (648 first pass, 324 final guard; the 324
-repeat three arms of the 648, so they are not independent); the 2216 records here also include development, calibration and audit runs that are not independent scored
+repeat three arms of the 648, so they are not independent); the 2240 records here also include development, calibration and audit runs that are not independent scored
 experiments. `postfix_*` is superseded by `postfix2_*` for judging the final guard.
 
 ## What is in here
 - `research/results/<arm>/runs.jsonl`: one JSON record per run (attempts with policy verdicts, proposed calls, mock-world effects, every recorded model
   round, the final answer, outcomes, code hashes). Arms:
+- `_interrupted_pilot_persia_24runs`: 24 runs (archived, interrupted and unused: excluded from every result)
 - `audit1`: 56 runs (capability audit (not reportable))
 - `audit2`: 56 runs (capability audit (not reportable))
 - `audit3`: 56 runs (capability audit (not reportable))
@@ -50,6 +51,9 @@ experiments. `postfix_*` is superseded by `postfix2_*` for judging the final gua
 - `voice-agent/pipeline/`: the loop under test (`llm.py`, final version) and the tool modules it imports. Tools are never executed by the harness.
 - `voice-agent/config/SOUL.md`: the system prompt (prompt B); prompt A is B minus lines 67, 68, 70, 72.
 - `research/PREREGISTRATION.md`, `research/reports/` (memo, tables).
+
+Release metadata: `research/release/models.json` (model digests, parameters, quantization, runtime), `code_versions.json` (per arm: commit, dirty flag, whether the recorded harness hash matches a git commit,
+whether that `llm.py` version is preserved), `experiment_settings.json`, `tables_regenerated_diff.txt`. `EVIDENCE_INDEX.md` maps each claim to its evidence; `FINAL_VERIFICATION_REPORT.md` lists the final checks and unresolved gaps.
 
 ## Verify without any model (Python 3.12, standard library for steps 1 to 3)
 ```

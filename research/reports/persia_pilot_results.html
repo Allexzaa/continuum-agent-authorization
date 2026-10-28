@@ -87,6 +87,8 @@
   <h1>Can a local assistant be tricked by what it reads, and what stops it?</h1>
   <p class="lede">A sandboxed pilot of prompt injection and tool authorization on Persia, a local voice assistant built on a Llama 3.1 8B fine-tune, with Gemma 4 12B as a second model. Everything ran against fake data: no live tools, accounts, files or network.</p>
   <div class="status">
+    <span class="chip">completed preliminary study</span>
+    <span class="chip">partially reproducible</span>
     <span class="chip">pilot, not a benchmark</span>
     <span class="chip">774 scored runs</span>
     <span class="chip">0 crashes, 0 network violations</span>
@@ -171,6 +173,7 @@
     <li><b>Re-score:</b> stored outcomes equal a fresh application of the scorer to the raw attempts, effects and proposed calls, for every run.</li>
     <li><b>Replay:</b> exact match is required only for the arms that ran on the final loop code (324 runs). Earlier arms ran on earlier loop versions that were not preserved, so differences there are expected and listed. Ten of those 324 answers came from a recovery call whose text was not stored (twelve in the redacted bundle, where name substitution shifts a truncation point); attempts and effects still match.</li>
     <li><b>Not checkable without the model weights:</b> the sampling itself (seeds are fixed, GPU decoding is not bit-exact) and the author's hand labels. The five answers labelled "claims the denied action was done" are printed by the verifier for a human read.</li>
+    <li><b>Final verification:</b> 14 release checks pass (logs preserved, metrics recomputed, tables regenerated with 0 differences, recorded harness hashes matched to git history for all 16 arms, no personal data). The unresolved gaps are listed in the verification report: the earlier agent loop versions are unavailable, one reader labeled the denial runs, and no license has been chosen yet.</li>
     <li><b>Redacted bundle</b> (run logs, fixtures, scorer, loop code, tests, manifest) is available from the author on request. It replaces a personal name, an email address and a home path by text substitution; hashes in the run records refer to the unredacted originals and a mapping file ties them together.</li>
   </ul>
 
