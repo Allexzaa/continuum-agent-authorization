@@ -48,7 +48,7 @@ experiments. `postfix_*` is superseded by `postfix2_*` for judging the final gua
 - `research/src/`: adapter (drives Persia's real loop), mock world, policies (A/B permissive, C enforced), scorer (`score_runs.py`), runner, report generator,
   and `verify_claims.py`.
 - `research/tests/`: 62 unit tests (scripted fake model, no network).
-- `voice-agent/pipeline/`: the loop under test (`llm.py`, final version) and the tool modules it imports. Tools are never executed by the harness.
+- `voice-agent/pipeline/`: the loop under test (`llm.py`, final version) and stubs of the tool modules it imports (same names, no code). Tools are never executed by the harness.
 - `voice-agent/config/SOUL.md`: the system prompt (prompt B); prompt A is B minus lines 67, 68, 70, 72.
 - `research/PREREGISTRATION.md`, `research/reports/` (memo, tables).
 
@@ -61,7 +61,7 @@ python3 research/src/verify_claims.py --no-replay      # rescore every run, reco
 python3 -m unittest discover -s research/tests          # needs the packages below
 python3 research/src/verify_claims.py                   # also replays recorded model outputs through the real loop (needs the packages below)
 ```
-Packages for the loop and the tests: `requests python-dateutil caldav icalendar google-api-python-client google-auth slack_sdk httpx pymupdf`.
+Package for the loop and the tests: `requests` only. The integration modules under `voice-agent/pipeline/*_tools.py` are empty stubs (the harness never runs real tools); the real integrations are not part of this release.
 The verifier prints PASS or FAIL per figure. It also prints the runs whose answers need a human read (the "claimed a denied action" labels).
 
 ## What each check proves, and what it does not

@@ -173,7 +173,7 @@
     <li><b>Re-score:</b> stored outcomes equal a fresh application of the scorer to the raw attempts, effects and proposed calls, for every run.</li>
     <li><b>Replay:</b> exact match is required only for the arms that ran on the final loop code (324 runs). Earlier arms ran on earlier loop versions that were not preserved, so differences there are expected and listed. Ten of those 324 answers came from a recovery call whose text was not stored (twelve in the redacted bundle, where name substitution shifts a truncation point); attempts and effects still match.</li>
     <li><b>Not checkable without the model weights:</b> the sampling itself (seeds are fixed, GPU decoding is not bit-exact) and the author's hand labels. The five answers labelled "claims the denied action was done" are printed by the verifier for a human read.</li>
-    <li><b>Final verification:</b> 14 release checks pass (logs preserved, metrics recomputed, tables regenerated with 0 differences, recorded harness hashes matched to git history for all 16 arms, no personal data). The unresolved gaps are listed in the verification report: the earlier agent loop versions are unavailable, one reader labeled the denial runs, and no license has been chosen yet.</li>
+    <li><b>Final verification:</b> 15 release checks pass (logs preserved, metrics recomputed, tables regenerated with 0 differences, recorded harness hashes matched to git history for all 16 arms, the release runs without the Gmail, Slack and Calendar libraries because the agent loop is real and the integrations are stubs, no personal data). The unresolved gaps are listed in the verification report: the earlier agent loop versions are unavailable, one reader labeled the denial runs, and no license has been chosen yet.</li>
     <li><b>Redacted bundle</b> (run logs, fixtures, scorer, loop code, tests, manifest) is available from the author on request. It replaces a personal name, an email address and a home path by text substitution; hashes in the run records refer to the unredacted originals and a mapping file ties them together.</li>
   </ul>
 
@@ -202,7 +202,7 @@
     <li>More cases and seeds, an independent labeler on a sample, and an adaptive attacker, before comparing models.</li>
   </ul>
 
-  <footer>Every figure is a count with its denominator and traces to a run ID in the run logs, a git commit and stored code hashes. All addresses and data in the cases are synthetic.</footer>
+  <footer>Every figure is a count with its denominator and traces to a run ID in the run logs, a git commit and stored code hashes. All addresses and data in the cases are synthetic. Report, tables, cases and logs: CC BY 4.0. Code: MIT.</footer>
 </div>
 </body>
 </html>

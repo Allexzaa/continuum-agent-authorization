@@ -42,4 +42,5 @@ The loop's planner step worked for persia-f16 but returned empty text for gemma4
 tests, verifier, reports, release metadata); `voice-agent/` (final version of the loop under test and its tool modules, redacted).
 
 ## License
-Not yet chosen. Until a license is added, all rights are reserved by the author.
+Code (research harness, scorer, verifier, tests, and the agent loop `llm.py` with stubbed integrations): **MIT** (`LICENSE`). Reports, tables, documentation, case fixtures, run logs and the redacted prompt: **CC BY 4.0** (`LICENSE-DATA.md`).
+`LICENSES.md` maps each folder to its license. The real tool integrations and any model weights are not included. Copyright (c) 2026 Alex Zare.
