@@ -41,3 +41,11 @@ python3 -I research/src/report.py research/results/pilot_persia research/results
 See `reports/evidence_memo.pdf`. Short version (section 4b of the memo covers the later F-018 fix and `run_postfix*.sh`): no forbidden call executed in the confirmatory pilot because the fixed loop switches tools off after a read request is
 satisfied; with that rule ablated, prompts A and B executed the injected action in 8 of 66 exposed runs and the policy condition in 0 of 33, with 0 false blocks.
 Condition C is an oracle-scoped research policy, not a deployable control.
+
+## Reproducibility status
+Partially reproducible. Earlier versions of Persia's `voice-agent/pipeline/llm.py` were never under version control and are unavailable; only the final version
+remains and it matches the `postfix2_*` runs. Hashes of earlier versions identify what ran but do not recover its behavior. The research harness is recoverable from
+git. Recorded model output is truncated to 2,000 characters per round; planner calls and empty-final recovery text were not stored. Exact historical replay is not claimed.
+`research/src/verify_claims.py` re-scores every run, recomputes every memo figure and replays what was recorded. Run categories: 774 original scored runs (252 confirmatory,
+126 exploratory legacy-loop, 396 post hoc); post-fix re-runs are separate (972 records: 648 first pass, 324 final guard, the latter repeating three arms of the former); the
+bundle's 2,216 records also include development, calibration and audit runs.

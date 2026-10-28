@@ -2,6 +2,13 @@
 
 Everything needed to re-score, re-check and replay the reported results, minus what cannot be shared. All data are synthetic.
 
+**Status: partially reproducible.** Earlier versions of Persia's `llm.py` were never under version control and are unavailable; only the final version is here and it matches
+the `postfix2_*` runs. Hashes of earlier versions identify what ran but do not recover its behavior. The research harness is recoverable from git. Recorded model output is
+truncated to 2,000 characters per round, and planner calls and empty-final recovery text were not stored, so exact historical replay is not claimed. Run categories are kept
+separate: 774 original scored runs (252 confirmatory, 126 exploratory legacy-loop, 396 post hoc); post-fix re-runs are 972 records (648 first pass, 324 final guard; the 324
+repeat three arms of the 648, so they are not independent); the 2216 records here also include development, calibration and audit runs that are not independent scored
+experiments. `postfix_*` is superseded by `postfix2_*` for judging the final guard.
+
 ## What is in here
 - `research/results/<arm>/runs.jsonl`: one JSON record per run (attempts with policy verdicts, proposed calls, mock-world effects, every recorded model
   round, the final answer, outcomes, code hashes). Arms:
