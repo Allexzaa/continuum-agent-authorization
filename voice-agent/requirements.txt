@@ -1,0 +1,33 @@
+# Install PyTorch + torchaudio FIRST — must match your CUDA version
+# https://pytorch.org/get-started/locally/
+# Example for CUDA 13.0 (DGX Spark):
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu130
+
+# Silero VAD is loaded via torch.hub — not on PyPI
+# Pre-cache on first run:
+#   python -c "import torch; torch.hub.load('snakers4/silero-vad', 'silero_vad', trust_repo=True)"
+
+# Note: onnxruntime-gpu has no CUDA 13.0 wheel yet — install plain onnxruntime as fallback
+# Replace with onnxruntime-gpu when a cu130 wheel becomes available
+faster-whisper
+kokoro-onnx
+onnxruntime
+openwakeword
+sounddevice
+numpy
+requests
+python-dotenv
+sqlite-vec
+sentence-transformers
+
+# PDF tools (Phase 1)
+pymupdf==1.27.2.3
+pdf2image==1.17.0
+easyocr==1.7.2
+opencv-python-headless==4.13.0.92
+Pillow==12.2.0
+# LayoutLMv3 fine-tuned on FUNSD — download on first use:
+#   from transformers import LayoutLMv3Processor, LayoutLMv3ForTokenClassification
+#   LayoutLMv3Processor.from_pretrained("nielsr/layoutlmv3-finetuned-funsd")
+# poppler-utils: already installed system-wide (apt)
+slack_sdk

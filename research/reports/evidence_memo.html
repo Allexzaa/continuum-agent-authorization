@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pilot evidence memo: prompt injection and tool authorization</title>
+<style>
+  @page { size: Letter; margin: 0.6in 0.7in; }
+  body { font: 9.6pt/1.36 "DejaVu Sans", Arial, sans-serif; color: #111; margin: 0; }
+  h1 { font-size: 14pt; margin: 0 0 2px; }
+  h2 { font-size: 10.6pt; margin: 11px 0 3px; border-bottom: 1px solid #999; padding-bottom: 1px; }
+  p { margin: 3px 0 5px; }
+  ul { margin: 2px 0 5px 16px; padding: 0; }
+  li { margin: 1px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 4px 0 6px; font-size: 8.3pt; }
+  th, td { border: 1px solid #888; padding: 1.5px 4px; text-align: left; vertical-align: top; }
+  th { background: #eee; }
+  td.n, th.n { text-align: center; }
+  .meta { font-size: 8.6pt; color: #333; margin-bottom: 4px; }
+  .box { border: 1px solid #888; padding: 3px 6px; background: #f6f6f6; margin: 4px 0 6px; }
+  code { font-size: 8.4pt; }
+  .tag { font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Prompt injection and tool authorization on a local assistant: pilot evidence memo</h1>
+<div class="meta">Synthetic, sandboxed pilot. Labels are author-only (no independent labeler). Results marked MEASURED are counts from the run logs; anything marked PROPOSED was not run. Run date 2026-10-28.</div>
+
+<h2>1. What was tested</h2>
+<p>Question: when a local tool-using assistant reads untrusted content (an email body, a note, PDF text, a tool result) that contains instructions, how do (a) prompt-level trust rules and (b) an application-enforced authorization check compare on unauthorized tool requests, simulated unauthorized executions, and legitimate task success?</p>
+<ul>
+<li><b>System under test:</b> the real tool loop of a local voice assistant (Persia: a Llama 3.1 8B fine-tune, plus <code>gemma4:12b</code> as a second model), run against a synthetic mock world. No live tools, accounts, files or network; non-local requests are blocked in code and unit-tested (46 tests).</li>
+<li><b>Conditions:</b> A = deployed system prompt minus its four injection-trust rules; B = prompt as deployed; C = B plus a deterministic authorization policy at execution time (default deny, per-case allowed tools and resources, single-use approval events only the fixture can create).</li>
+<li><b>Cases:</b> 6 hand-written attacks (email forward request, forged approval claim, injection inside a tool result, PDF text asking for a calendar write, staged multi-step, alternate channels), 6 benign twins (same fixture, injection removed), 2 authorized-action tasks. 3 trials per cell with fixed seeds. A follow-up used 4 mixed tasks that need a write after reading untrusted content, plus twins.</li>
+<li><b>Scale:</b> 774 scored runs: 252 confirmatory (2 models x 14 cases x 3 conditions x 3 trials), 126 exploratory legacy-loop, 396 post hoc follow-ups. Hypotheses and metrics were written down before the first scored run (<code>PREREGISTRATION.md</code>).</li>
+</ul>
+
+<h2>2. Results (MEASURED; every figure is n/N)</h2>
+<p><span class="tag">Confirmatory pilot (252 runs).</span> Forbidden calls <i>executed</i> in the mock world: 0 of 252 runs in every condition. Forbidden calls <i>proposed</i> are in the table. The 8 Persia proposals were raw-text calls emitted after tools were already switched off and were never dispatched. Gemma's 3 attempts were dispatched, and each failed on a missing argument.</p>
+<table>
+<tr><th>Model</th><th>Cond.</th><th class="n">Exposed to injection</th><th class="n">Attempted forbidden call (of exposed)</th><th class="n">Executed (of exposed)</th><th class="n">Benign success</th><th class="n">False blocks (benign)</th></tr>
+<tr><td>Persia</td><td>A</td><td class="n">15/18</td><td class="n">2/15</td><td class="n">0/15</td><td class="n">21/24</td><td class="n">0/24</td></tr>
+<tr><td>Persia</td><td>B</td><td class="n">16/18</td><td class="n">3/16</td><td class="n">0/16</td><td class="n">22/24</td><td class="n">0/24</td></tr>
+<tr><td>Persia</td><td>C</td><td class="n">16/18</td><td class="n">3/16</td><td class="n">0/16</td><td class="n">22/24</td><td class="n">0/24</td></tr>
+<tr><td>gemma4:12b</td><td>A</td><td class="n">18/18</td><td class="n">3/18</td><td class="n">0/18</td><td class="n">22/24</td><td class="n">0/24</td></tr>
+<tr><td>gemma4:12b</td><td>B</td><td class="n">18/18</td><td class="n">0/18</td><td class="n">0/18</td><td class="n">22/24</td><td class="n">0/24</td></tr>
+<tr><td>gemma4:12b</td><td>C</td><td class="n">18/18</td><td class="n">0/18</td><td class="n">0/18</td><td class="n">22/24</td><td class="n">0/24</td></tr>
+</table>
+
+<p><span class="tag">Why zero executions is not a safety result.</span> The loop fix that lets read-only requests finish (F-014) also switches tools off once the requested content has been read. On the six read-only attack cases that left nothing for a policy to block. So the follow-ups (post hoc, decided after seeing this table, reported separately): (a) the same 14 cases with that stop rule removed; (b) mixed tasks where a write must follow the untrusted read.</p>
+<table>
+<tr><th>Follow-up arm (post hoc)</th><th>Cond.</th><th class="n">Attempted (of exposed)</th><th class="n">Executed (of exposed)</th><th class="n">Blocked by policy (of attempts)</th><th class="n">Benign success</th><th class="n">False blocks</th></tr>
+<tr><td>Persia, stop rule off</td><td>A</td><td class="n">2/15</td><td class="n">1/15</td><td class="n">n/a</td><td class="n">21/24</td><td class="n">0/24</td></tr>
+<tr><td>Persia, stop rule off</td><td>B</td><td class="n">3/15</td><td class="n">1/15</td><td class="n">n/a</td><td class="n">21/24</td><td class="n">0/24</td></tr>
+<tr><td>Persia, stop rule off</td><td>C</td><td class="n">3/15</td><td class="n">0/15</td><td class="n">2/3</td><td class="n">21/24</td><td class="n">0/24</td></tr>
+<tr><td>gemma4:12b, stop rule off</td><td>A</td><td class="n">3/18</td><td class="n">3/18</td><td class="n">n/a</td><td class="n">23/24</td><td class="n">0/24</td></tr>
+<tr><td>gemma4:12b, stop rule off</td><td>B</td><td class="n">3/18</td><td class="n">3/18</td><td class="n">n/a</td><td class="n">24/24</td><td class="n">0/24</td></tr>
+<tr><td>gemma4:12b, stop rule off</td><td>C</td><td class="n">3/18</td><td class="n">0/18</td><td class="n">3/3</td><td class="n">24/24</td><td class="n">0/24</td></tr>
+<tr><td>Persia, mixed tasks</td><td>A / B / C</td><td class="n">3/8 each</td><td class="n">0/8 each</td><td class="n">C: 2/3</td><td class="n">9/12 each</td><td class="n">0/12</td></tr>
+<tr><td>gemma4:12b, mixed tasks</td><td>A / B / C</td><td class="n">0/5, 0/6, 0/6</td><td class="n">0</td><td class="n">n/a</td><td class="n">12/12 each</td><td class="n">0/12</td></tr>
+</table>
+
+<ul>
+<li><b>Policy C blocked every forbidden call that A and B executed, with no measured cost.</b> With the stop rule off, A and B executed the injected action in 8 of 66 exposed runs (Persia 2/30, gemma4:12b 6/36); C executed 0 of 33. Across all 144 benign condition-C runs, including the approval-gated send (B07), there were 0 false blocks and 0 approval friction. Caveat: C is scoped by the experimenter's per-case allowed list (an oracle), so this is a best case for scoped enforcement, not a deployable policy.</li>
+<li><b>Prompt-level trust rules showed no measured effect.</b> B did not lower attempts versus A in either model (Persia 2/15 vs 3/15; gemma4:12b 3/18 vs 3/18, with the PDF-to-calendar injection attempted in 9 of 9 runs across A, B and C). The confirmatory gemma4:12b difference (3/18 vs 0/18) did not reproduce with tools left on, so it reflects the loop change, not the prompt rules.</li>
+<li><b>Attempts were attack-induced, not baseline noise.</b> In 37 paired runs (attack vs its benign twin, same condition and seed) where a forbidden call was proposed, it happened only in the attack run: 37 attack-only, 0 twin-only.</li>
+<li><b>Containment did not make the assistant report honestly.</b> In 5 of the 21 runs where C denied a call, the final answer still said the denied action was done (for example, a denied calendar update followed by "Offsite added to the calendar"; a denied Slack post followed by "posted a copy to the channel"; two of the five were denials of malformed arguments on authorized replies). The denial text reached the model as a tool error and was ignored. Read by one person, so author-only labels. <b>Fixed afterwards</b> (section 4b).</li>
+<li><b>Real harm without a policy:</b> in one stop-rule-off run under B, Persia rewrote the user's note, replacing the original content and copying the injected instruction into it (data loss plus persistence of the injection). Under C, same case and seed, the send was denied and the note was untouched.</li>
+</ul>
+
+<h2>3. Hypotheses</h2>
+<table>
+<tr><th>Hypothesis (preregistered)</th><th>Result</th></tr>
+<tr><td>H1: B has fewer attempts than A</td><td>Not supported. Testable (A attempted at least once), but B was equal or higher in both models.</td></tr>
+<tr><td>H2: C has fewer executions than B</td><td>Untestable in the confirmatory pilot (B executed 0). Supported only in the post hoc stop-rule-off arm: 8 executions in A/B, 0 in C.</td></tr>
+<tr><td>H3: C raises false blocks, friction or latency</td><td>Not observed: 0 false blocks, 0 friction, median latency not higher than B (Persia 6.1 s vs 6.8 s, gemma4:12b 5.3 s vs 5.3 s in the pilot). This is the oracle-scope best case.</td></tr>
+<tr><td>H4 (exploratory): models differ in attempt rate</td><td>Differences are case-specific, not model-wide: Persia attempted on the tool-result read and note-write cases, gemma4:12b on the PDF calendar case.</td></tr>
+<tr><td>H5 (exploratory): loop prompt format changes gemma4:12b</td><td>Legacy format 0/54 attempts vs fixed 3/54. Not the earlier dev-split pattern, which no longer holds after the loop fixes.</td></tr>
+</table>
+
+<h2>4. Disclosures and method changes</h2>
+<ul>
+<li><b>The system under test was repaired before and during the pilot.</b> Nine defects in Persia's loop (F-009 to F-017) were fixed first: parser crashes on odd tool-call shapes, success detection that missed real tool output formats, a trailing system message that made the model print its role word, reads never counted as completed, empty final answers, and tool calls executing in final-answer mode. On a 14-case capability audit, legitimate completion rose from 38/56 to 53/56. The August benchmark numbers were measured with mock strings matched to the old detector and are not comparable.</li>
+<li><b>Dev split (not reportable):</b> before the loop fixes gemma4:12b attempted 6/30 on one urgency-plus-secrecy style identical under A and B, and Persia 0/30; after the fixes both were 0/30. The susceptibility depended on the loop's prompt format.</li>
+<li><b>Calibration used benign and exposure outcomes only</b> (seeds not used in the pilot). Attack outcomes were not used to edit cases. After the manifest was committed, success criteria were widened for spoken numbers (&ldquo;42K&rdquo;) before any scored run.</li>
+<li><b>Code provenance:</b> the assistant's source directory is not under version control, so every run stores git commit, dirty flag and SHA-256 prefixes of the loop, prompt and harness. Confirmatory arms ran at commits e5a03f7/eeef6b1, follow-ups at 6d67808, so harness hashes differ between them. One confirmatory Persia arm ran with an uncommitted report-script edit; execution modules were verified identical to the commit. Confirmatory runs predate a final-answer-mode fix (F-017): 3 Gemma runs (A05 under A, one per trial) dispatched a call in that mode and failed on a missing argument.</li>
+</ul>
+
+<h2>4b. Post hoc fix of the misreporting (same day, after the results above)</h2>
+<ul>
+<li><b>Change:</b> Persia's loop now remembers state-changing calls that failed, were denied or were cancelled. If the final answer talks about that action and does not admit the failure, one plain sentence is appended (&ldquo;One correction: I was not able to post to Slack because it was not permitted&rdquo;); if the model says nothing after a failure, the fallback is a plain failure report, not a raw error string. The loop also rejects a calendar update or delete whose event ID the model invented, so it must look the ID up first. 16 new unit tests.</li>
+<li><b>Live re-run</b> of the three arms that contain failed actions (324 runs, same cases and seeds): every answer that claimed a failed action now carries the correction (4 answers that claimed the action, plus 2 that only discussed replying), and no answer claims a failed action uncorrected. Benign success in these arms was unchanged (63/72, 27/36, 71/72) and there were 0 false blocks. Executions were unchanged (the guard is not a safety control: it changes what the user is told, not what runs).</li>
+<li><b>Side effect, disclosed:</b> invented event IDs used to fail by themselves, which was accidental protection. With the ID check the model looks the ID up and the injected delete can run. One Persia run under A, mixed arm, deleted the calendar event (0 of 8 before, 1 of 8 after; 0 under B and C). Separately, a first full re-run of the pilot arms showed benign success 63/72 for Persia vs 65/72 before, from two email cases that did not repeat; this is run-to-run variation, as the changed code does not touch email reads.</li>
+<li>Both re-runs ran on a changed loop, after the results above, so they are exploratory; the numbers in section 2 are the pre-fix measurements.</li>
+</ul>
+
+<h2>5. Limits</h2>
+<ul>
+<li>Pilot: 14 hand-written cases, 3 seeds per cell. Trials of one case are not independent; no significance tests, no population claims. Not evidence about frontier models or production safety.</li>
+<li>Persia resisting these attacks is not proof of robustness. Neither the confirmatory zero executions nor the stop rule tested an adaptive attacker. <code>llama3.1:8b</code> was excluded because it never called tools under this prompt (a competence floor, not a safety result).</li>
+<li>Several allowed forbidden-tool attempts did nothing only because the mock call failed (a calendar update of an event that does not exist, a Slack post missing its required text argument, a calendar create missing its summary). That is luck, not a defense.</li>
+<li>Gemma never opened the message bodies in two mixed cases (exposure 0/9 in each), so those cases tested nothing for that model.</li>
+<li>Condition C is an oracle-scoped research policy, not built into the assistant. The assistant's own spoken-confirmation gates were bypassed and not evaluated. Labels are author-only.</li>
+</ul>
+
+<h2>6. Next (PROPOSED, not run)</h2>
+<ul>
+<li>A deployable policy that derives scope from provenance (what the user asked, what content is untrusted) instead of an oracle allowlist, then repeat the false-block measurement.</li>
+<li>More cases and seeds, an independent labeler on a sample, and an adaptive attacker, before any comparison across models.</li>
+</ul>
+
+<p class="meta">Reproduce: <code>research/run_tests.sh</code> then <code>research/run_pilot.sh</code> and <code>research/run_followup.sh</code>, then <code>research/run_postfix.sh</code> and <code>research/run_postfix2.sh</code> for the fix re-runs; tables from <code>research/src/report.py</code>. Every figure traces to a run ID in <code>runs.jsonl</code>, a git commit and the code hashes stored in each record. Manifest hashes: <code>research/cases/MANIFEST*.sha256</code>. <b>Independent check:</b> <code>research/src/verify_claims.py</code> re-scores every run from its raw records, recomputes every figure in this memo, and replays the recorded model outputs through the real loop, policy and mock world (74 checks pass); <code>research/make_bundle.py</code> builds a redacted bundle with the run logs, fixtures, scorer, loop code and tests.</p>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+{
+ "final_llm_py_original_hash": "6f788a6a535792ff",
+ "note": "Run records store 16-hex-digit prefixes of SHA-256 of the unredacted files. fixture_hashes maps each case to the original hash (as stored in runs) and to the hash of the redacted fixture in this bundle.",
+ "fixture_hashes": {
+  "A01": {
+   "original": "539f47a5a40c8746",
+   "bundle": "539f47a5a40c8746"
+  },
+  "A03": {
+   "original": "a5cefd7d182cdb22",
+   "bundle": "a5cefd7d182cdb22"
+  },
+  "A04": {
+   "original": "c0e0d149cbdcb7c6",
+   "bundle": "c0e0d149cbdcb7c6"
+  },
+  "A05": {
+   "original": "e328a2581e6f47f8",
+   "bundle": "e328a2581e6f47f8"
+  },
+  "A06": {
+   "original": "1e69a89588cbceb9",
+   "bundle": "1e69a89588cbceb9"
+  },
+  "A10": {
+   "original": "52a86e082aa3051d",
+   "bundle": "7e16c9c448b49bbf"
+  },
+  "B01": {
+   "original": "3a4a171d516d3287",
+   "bundle": "3a4a171d516d3287"
+  },
+  "B02": {
+   "original": "77818b2bb58640ef",
+   "bundle": "77818b2bb58640ef"
+  },
+  "B03": {
+   "original": "855f5d2f4ccf5fee",
+   "bundle": "855f5d2f4ccf5fee"
+  },
+  "B04": {
+   "original": "ff9f4e7ad81d65cb",
+   "bundle": "ff9f4e7ad81d65cb"
+  },
+  "B05": {
+   "original": "dc8d31944e6d7022",
+   "bundle": "dc8d31944e6d7022"
+  },
+  "B06": {
+   "original": "9091feb3ff0bd104",
+   "bundle": "de11dc09c1afa980"
+  },
+  "B07": {
+   "original": "47139ebba60e0365",
+   "bundle": "47139ebba60e0365"
+  },
+  "B08": {
+   "original": "3385bc05543ee9de",
+   "bundle": "3385bc05543ee9de"
+  },
+  "M01": {
+   "original": "b4ad5ca03177b77f",
+   "bundle": "b4ad5ca03177b77f"
+  },
+  "N01": {
+   "original": "be373641128f8e6f",
+   "bundle": "be373641128f8e6f"
+  },
+  "M02": {
+   "original": "7eb2af5b9bf448c5",
+   "bundle": "7eb2af5b9bf448c5"
+  },
+  "N02": {
+   "original": "917f5a1e663f49cf",
+   "bundle": "917f5a1e663f49cf"
+  },
+  "M03": {
+   "original": "a7207a01c3dfb7c7",
+   "bundle": "a7207a01c3dfb7c7"
+  },
+  "N03": {
+   "original": "1974a534741d3a30",
+   "bundle": "1974a534741d3a30"
+  },
+  "M04": {
+   "original": "e6281dfd9bb1aa1a",
+   "bundle": "e6281dfd9bb1aa1a"
+  },
+  "N04": {
+   "original": "eab1de0d006dadc0",
+   "bundle": "eab1de0d006dadc0"
+  }
+ },
+ "arms": [
+  {
+   "arm": "audit1",
+   "runs": 56,
+   "kind": "capability audit (not reportable)"
+  },
+  {
+   "arm": "audit2",
+   "runs": 56,
+   "kind": "capability audit (not reportable)"
+  },
+  {
+   "arm": "audit3",
+   "runs": 56,
+   "kind": "capability audit (not reportable)"
+  },
+  {
+   "arm": "calib2_gemma4_12b",
+   "runs": 28,
+   "kind": "calibration (not reportable)"
+  },
+  {
+   "arm": "calib2_persia-f16_latest",
+   "runs": 28,
+   "kind": "calibration (not reportable)"
+  },
+  {
+   "arm": "calib3_gemma4_12b",
+   "runs": 28,
+   "kind": "calibration (not reportable)"
+  },
+  {
+   "arm": "calib3_persia-f16_latest",
+   "runs": 28,
+   "kind": "calibration (not reportable)"
+  },
+  {
+   "arm": "calib_gemma4_12b",
+   "runs": 14,
+   "kind": "calibration (not reportable)"
+  },
+  {
+   "arm": "calib_persia-f16_latest",
+   "runs": 14,
+   "kind": "calibration (not reportable)"
+  },
+  {
+   "arm": "dev2_gemma4_12b",
+   "runs": 30,
+   "kind": "dev split / calibration (not reportable)"
+  },
+  {
+   "arm": "dev2_persia-f16_latest",
+   "runs": 30,
+   "kind": "dev split / calibration (not reportable)"
+  },
+  {
+   "arm": "dev_gemma12b",
+   "runs": 30,
+   "kind": "dev split / calibration (not reportable)"
+  },
+  {
+   "arm": "dev_llama",
+   "runs": 30,
+   "kind": "dev split / calibration (not reportable)"
+  },
+  {
+   "arm": "dev_persia",
+   "runs": 30,
+   "kind": "dev split / calibration (not reportable)"
+  },
+  {
+   "arm": "followup_gemma12b_mixed",
+   "runs": 72,
+   "kind": "post hoc follow-up"
+  },
+  {
+   "arm": "followup_gemma12b_stopread_off",
+   "runs": 126,
+   "kind": "post hoc follow-up"
+  },
+  {
+   "arm": "followup_persia_mixed",
+   "runs": 72,
+   "kind": "post hoc follow-up"
+  },
+  {
+   "arm": "followup_persia_stopread_off",
+   "runs": 126,
+   "kind": "post hoc follow-up"
+  },
+  {
+   "arm": "gate1",
+   "runs": 12,
+   "kind": "pre-pilot gate"
+  },
+  {
+   "arm": "pilot_gemma12b",
+   "runs": 126,
+   "kind": "confirmatory or exploratory pilot"
+  },
+  {
+   "arm": "pilot_gemma12b_legacy",
+   "runs": 126,
+   "kind": "confirmatory or exploratory pilot"
+  },
+  {
+   "arm": "pilot_persia",
+   "runs": 126,
+   "kind": "confirmatory or exploratory pilot"
+  },
+  {
+   "arm": "postfix2_gemma12b_stopread_off",
+   "runs": 126,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix2_persia_mixed",
+   "runs": 72,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix2_persia_stopread_off",
+   "runs": 126,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix_gemma12b",
+   "runs": 126,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix_gemma12b_mixed",
+   "runs": 72,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix_gemma12b_stopread_off",
+   "runs": 126,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix_persia",
+   "runs": 126,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix_persia_mixed",
+   "runs": 72,
+   "kind": "post-fix re-run"
+  },
+  {
+   "arm": "postfix_persia_stopread_off",
+   "runs": 126,
+   "kind": "post-fix re-run"
+  }
+ ]
+}
