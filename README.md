@@ -34,7 +34,7 @@ tasks, and later 4 mixed tasks plus twins; 3 seeds per cell. Hypotheses and metr
 6. Simulated damage without a policy: one run rewrote a note in the synthetic sandbox, replacing its content and copying the injected instruction.
 
 ## Limits
-The loop's planner step worked for persia-f16 but returned empty text for gemma4:12b in most planner-triggering prompts (probe: 8 of 10), and planner output was not logged in this study; a later diagnostic found it did not explain persia-f16's low attempt rate. persia-f16's fine-tuning data includes 14 injection-ignoring examples (of about 1,300), which may contribute and cannot be isolated here. Hand-written cases, 3 seeds per cell (trials of one case are not independent), one labeler, two local models, an oracle-scoped policy, Persia's own confirmation gates bypassed,
+The loop's planner step worked for persia-f16 but returned empty text for gemma4:12b in most planner-triggering prompts (probe: 8 of 10), and planner output was not logged in this study; a later diagnostic found it did not explain persia-f16's low attempt rate. a later probe found persia-f16 follows explicit assistant-addressed injections (12 of 40) and ignores passive wording, so its low attempt rate here is payload-form dependent; persia-f16's fine-tuning data includes 14 injection-ignoring examples (of about 1,300), which may contribute and cannot be isolated here. Hand-written cases, 3 seeds per cell (trials of one case are not independent), one labeler, two local models, an oracle-scoped policy, Persia's own confirmation gates bypassed,
 `llama3.1:8b` excluded (never called tools: a competence floor). Not evidence about frontier models or production deployment. No significance tests.
 
 ## Contents
