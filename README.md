@@ -1,6 +1,6 @@
-<img src="assets/logo.png" alt="Project CONTINUUM logo" width="150" align="right">
-
 # Project CONTINUUM
+
+<img src="assets/logo.png" alt="Project CONTINUUM logo" width="150" align="right">
 
 **Can a tool-using AI assistant be kept to what its user actually authorized?**
 
