@@ -157,6 +157,6 @@ The research design, the decisions and the review of results are the author's. T
 
 ## Citing
 
-> Lexzium AI. *Project CONTINUUM: authorization and control for a tool-using local assistant (Experiments 1, 2 and the Experiment 2 follow-up).* October 2026. https://github.com/Allexzaa/persia-injection-pilot-bundle. Licensed CC BY 4.0 (data and reports), MIT (code). Status: preliminary, author-labeled.
+> Lexzium AI. *Project CONTINUUM: authorization and control for a tool-using local assistant (Experiments 1, 2 and the Experiment 2 follow-up).* October 2026. https://github.com/Allexzaa/continuum-agent-authorization. Licensed CC BY 4.0 (data and reports), MIT (code). Status: preliminary, author-labeled.
 
 **Author:** Alex Zare, [LexZium](https://lexzium.com). Applied AI engineering, model evaluation, AI control.
