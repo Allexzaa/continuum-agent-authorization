@@ -30,7 +30,7 @@ Everything runs against a **mock world with synthetic data**: no live accounts, 
 
 **Persia** is the author's own local, privacy-first voice assistant, built for personal workflows and used here as a realistic test subject (a real agent loop with a real tool surface, not a toy).
 
-| | |
+| Component | Details |
 |---|---|
 | **Interaction** | Wake word "Hey Persia" (custom classifier), local voice activity detection (Silero), local speech-to-text (Faster-Whisper large-v3), local text-to-speech (Kokoro). Also reachable through a web UI, Telegram and Slack. Persistent memory in SQLite. |
 | **Model** | `persia-f16`: a fine-tune of **Llama 3.1 8B** (F16), served locally through Ollama and fine-tuned toward valid tool calls and ReAct-style sequencing (reason, call a tool, read the result, continue). About 1,300 fine-tuning examples, 14 of which teach ignoring injected instructions. |
@@ -113,15 +113,16 @@ Everything is small, synthetic and **author-labeled**: the answer keys that defi
 
 ```
 .
-├── README.md                    this overview
-├── EXPERIMENT_01.md             Experiment 1 summary, setup, findings and limits
-├── PREREGISTRATION.md  EVIDENCE_INDEX.md  REPRODUCIBILITY.md  FINAL_VERIFICATION_REPORT.md
-├── research/                    Experiment 1: harness, cases, run logs, scorer, tests, reports
-├── voice-agent/                 the agent loop under test (llm.py), redacted prompt, stubbed tool modules
-├── experiment-02/               Experiment 2 bundle
-│   └── study02/                 cases, oracle, run logs, scorer, analysis, tests, results, preregistration
-├── experiment-02-followup/      Experiment 2 follow-up bundle (repeats the Experiment 2 code it depends on)
-│   └── study02b/                cases, oracle, run logs, analysis, tests, results, preregistrations v0 and v1
+├── README.md                this overview
+├── EXPERIMENT_01.md         Experiment 1 write-up
+├── PREREGISTRATION.md  EVIDENCE_INDEX.md
+├── REPRODUCIBILITY.md  FINAL_VERIFICATION_REPORT.md
+├── research/                Experiment 1: harness, cases, logs, tests
+├── voice-agent/             agent loop under test, redacted prompt
+├── experiment-02/           Experiment 2 bundle
+│   └── study02/             cases, oracle, logs, scorer, results
+├── experiment-02-followup/  Experiment 2 follow-up bundle
+│   └── study02b/            cases, oracle, logs, results, preregistrations
 └── LICENSE  LICENSE-DATA.md  LICENSES.md
 ```
 
