@@ -1,6 +1,9 @@
-# Project CONTINUUM
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png">
+  <img alt="Project CONTINUUM" src="assets/header-light.png" width="900">
+</picture>
 
-<img src="assets/logo.png" alt="Project CONTINUUM logo" width="150" align="right">
+---
 
 **Can a tool-using AI assistant be kept to what its user actually authorized?**
 
@@ -9,8 +12,6 @@ Independent, preregistered experiments on prompt injection, tool authorization a
 ![Code: MIT](https://img.shields.io/badge/code-MIT-blue) ![Data and reports: CC BY 4.0](https://img.shields.io/badge/data%20%26%20reports-CC%20BY%204.0-lightgrey) ![Status: preliminary](https://img.shields.io/badge/status-preliminary-orange) ![Held-out runs preregistered](https://img.shields.io/badge/held--out%20runs-preregistered-brightgreen) ![Experiments: 3 completed](https://img.shields.io/badge/experiments-3%20completed-informational) [![Release v1.0](https://img.shields.io/badge/release-v1.0-blue)](https://github.com/Allexzaa/continuum-agent-authorization/releases/tag/v1.0)
 
 [Overview](#overview) · [Persia](#meet-persia-the-system-under-test) · [Experiments](#the-experiments) · [Method](#how-the-studies-are-run) · [Layout](#repository-layout) · [Reproduce](#reproduce-the-numbers) · [Limits](#what-the-studies-do-not-show) · [License](#licenses)
-
-<br clear="right">
 
 ---
 
@@ -119,7 +120,7 @@ Everything is small, synthetic and **author-labeled**: the answer keys that defi
 ├── REPRODUCIBILITY.md  FINAL_VERIFICATION_REPORT.md
 ├── research/                Experiment 1: harness, cases, logs, tests
 ├── voice-agent/             agent loop under test, redacted prompt
-├── assets/                  project logo
+├── assets/                  logo and header images
 ├── experiment-02/           Experiment 2 bundle
 │   └── study02/             cases, oracle, logs, scorer, results
 ├── experiment-02-followup/  Experiment 2 follow-up bundle
@@ -152,7 +153,7 @@ python3 study02b/analysis/analyze_followup.py   # prints the preregistered table
 
 Copyright 2026 Lexzium AI.
 
-The project logo (`assets/logo.png`) is © 2026 Lexzium AI, all rights reserved. It is **not** covered by the MIT or CC BY 4.0 licenses above.
+The project logo and the header images built from it (`assets/`) are © 2026 Lexzium AI, all rights reserved. They are **not** covered by the MIT or CC BY 4.0 licenses above.
 
 ## Authorship and AI assistance
 

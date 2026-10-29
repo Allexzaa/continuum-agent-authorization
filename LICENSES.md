@@ -13,4 +13,4 @@ If you reuse the system prompt or logs with Llama-derived models, check the appl
 `experiment-02/` and `experiment-02-followup/` follow the same split: code (`*/src/`, `*/tests/`, builders, scripts, stubs) is MIT (the `LICENSE` in each folder); reports, cases, oracle files, run logs, tables and documentation are CC BY 4.0 (the `LICENSE-DATA.md` in each folder). Copyright 2026 Lexzium AI. The same exclusions apply: no real integrations, no model weights.
 
 ## Logo
-`assets/logo.png` is © 2026 Lexzium AI, all rights reserved. It is excluded from the MIT and CC BY 4.0 licenses that cover the rest of this repository.
+`assets/logo.png`, `assets/header-light.png` and `assets/header-dark.png` are © 2026 Lexzium AI, all rights reserved. They are excluded from the MIT and CC BY 4.0 licenses that cover the rest of this repository.
