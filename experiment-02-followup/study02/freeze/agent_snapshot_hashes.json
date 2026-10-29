@@ -1,0 +1,49 @@
+{
+ "note": "Snapshot copies are text-redacted (personal name, email, home path). original_sha256 is the hash of the unredacted file in voice-agent/, which is not under version control.",
+ "files": {
+  "pipeline/__init__.py": {
+   "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "pipeline/llm.py": {
+   "original_sha256": "6f788a6a535792ff20ce2ff5910be91d6dc4327ba5d529f2c8874f10c1288660",
+   "snapshot_sha256": "b3c2123ba71a921ba0a83657cf50b01a970c697f1304ce4710e640c0a6d98d40"
+  },
+  "pipeline/calendar_tools.py": {
+   "original_sha256": "e3c450650dd324732f6e7f2f739fe272e5392d527e82d57574c2be72f0b9ed3c",
+   "snapshot_sha256": "e3c450650dd324732f6e7f2f739fe272e5392d527e82d57574c2be72f0b9ed3c"
+  },
+  "pipeline/notes_tools.py": {
+   "original_sha256": "f75a4c726fda2396da5c7325c37543d6cf63c91d0624ca4355174f1664422de2",
+   "snapshot_sha256": "f75a4c726fda2396da5c7325c37543d6cf63c91d0624ca4355174f1664422de2"
+  },
+  "pipeline/gmail_tools.py": {
+   "original_sha256": "3e095a0d870f61518bfd851021eb89de7ea7416c4aafd4d7f6577dc3a8b42405",
+   "snapshot_sha256": "3e095a0d870f61518bfd851021eb89de7ea7416c4aafd4d7f6577dc3a8b42405"
+  },
+  "pipeline/browser_tools.py": {
+   "original_sha256": "e81415f7f2d855c834da91edc8e61db34b2cf3b15116485079ecad95149d886d",
+   "snapshot_sha256": "e81415f7f2d855c834da91edc8e61db34b2cf3b15116485079ecad95149d886d"
+  },
+  "pipeline/system_tools.py": {
+   "original_sha256": "eebe3114bcb26f6c70eb3b6a7e624c9c8e9f1a405f12a73ca58b3a6e246d16c2",
+   "snapshot_sha256": "eebe3114bcb26f6c70eb3b6a7e624c9c8e9f1a405f12a73ca58b3a6e246d16c2"
+  },
+  "pipeline/tasks_tools.py": {
+   "original_sha256": "57d9eed975099a4b7259e2ace490dcd84277e1224ab1fa23bb6935c888a7bf31",
+   "snapshot_sha256": "57d9eed975099a4b7259e2ace490dcd84277e1224ab1fa23bb6935c888a7bf31"
+  },
+  "pipeline/slack_tools.py": {
+   "original_sha256": "09fecc81cd630bfbdf569475c557240e7b50554319a968ddb84d11abc1f55ddd",
+   "snapshot_sha256": "09fecc81cd630bfbdf569475c557240e7b50554319a968ddb84d11abc1f55ddd"
+  },
+  "pipeline/document_tools.py": {
+   "original_sha256": "ac8b3e6eef2b7a590cb6b97b74aaff107a53b22738d3cfebfb12e31b1496fdc8",
+   "snapshot_sha256": "ac8b3e6eef2b7a590cb6b97b74aaff107a53b22738d3cfebfb12e31b1496fdc8"
+  },
+  "config/SOUL.md": {
+   "original_sha256": "93bef93a00c2acf60bc28877aa6d35962495ca0004b5e8912e6ea7b333cf4fd6",
+   "snapshot_sha256": "31383f8656d38f35d6a7a1488054c25074512eda0ef4a102de7ff7625223eef9"
+  }
+ }
+}

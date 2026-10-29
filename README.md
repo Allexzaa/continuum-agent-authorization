@@ -1,3 +1,17 @@
+# Project CONTINUUM: reproducibility bundles (Experiments 1 and 2)
+
+Independent research on authorization and control for a tool-using local assistant, all in a simulated sandbox with synthetic data. Each experiment below has its own redacted bundle (run logs, cases, scorer, analysis, tests). Everything is preliminary and author-labeled (the answer keys were written by one party, with Claude Code, and not independently reviewed).
+
+| Folder | What it is | Headline result |
+|---|---|---|
+| repository root and `research/` | **Experiment 1**: prompt injection and tool authorization (this README, below) | enforced policy executed 0 of 33 injected actions vs 8 of 66 with prompt rules only (oracle-scoped best case) |
+| `experiment-02/` | **Experiment 2**: provenance-aware authorization, preregistered held-out run | lineage-aware checks cut simulated leaks by 22 points in two models (templates leaking: Gemma 14 to 3 of 50, Persia 23 to 12 of 50) |
+| `experiment-02-followup/` | **Experiment 2 follow-up**: usability cost of that check, preregistered held-out run | on tasks that must read a private note, Gemma completed 40 of 40 with argument scoping and 20 of 40 with the lineage check (all mixed-note tasks blocked); Gemma leak comparison inconclusive |
+
+Each folder has its own `README.md` with the commands to recompute its numbers from the raw records, plus its own `LICENSE` and `LICENSE-DATA.md`. The follow-up bundle repeats the Experiment 2 code it depends on. Model weights and the real tool integrations (Gmail, Calendar, Slack and others) are not included; they are replaced by stubs. See `LICENSES.md`.
+
+---
+
 # Experiment 1: Prompt injection and tool authorization on a local assistant
 
 **Status: Completed, preliminary empirical study. Partially reproducible** (see `REPRODUCIBILITY.md`). Run 2026-10-28. Everything is simulated: a sandboxed mock world with

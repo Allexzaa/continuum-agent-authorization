@@ -1,0 +1,45 @@
+{
+ "status": "LOCKED with the investigator's written approval (see STUDY02_PREREGISTRATION.md Section 9 and LOCK_RECORD.md)",
+ "declared_planner_mode": "think_off",
+ "primary_arms": [
+  "B2",
+  "BPLUS",
+  "C2",
+  "C2COARSE"
+ ],
+ "exploratory_arms": [
+  "C2TOKEN"
+ ],
+ "seeds": [
+  2000,
+  2001
+ ],
+ "files_sha256": {
+  "agent_snapshot/config/SOUL.md": "31383f8656d38f35d6a7a1488054c25074512eda0ef4a102de7ff7625223eef9",
+  "agent_snapshot/pipeline/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "agent_snapshot/pipeline/browser_tools.py": "e81415f7f2d855c834da91edc8e61db34b2cf3b15116485079ecad95149d886d",
+  "agent_snapshot/pipeline/calendar_tools.py": "e3c450650dd324732f6e7f2f739fe272e5392d527e82d57574c2be72f0b9ed3c",
+  "agent_snapshot/pipeline/document_tools.py": "ac8b3e6eef2b7a590cb6b97b74aaff107a53b22738d3cfebfb12e31b1496fdc8",
+  "agent_snapshot/pipeline/gmail_tools.py": "3e095a0d870f61518bfd851021eb89de7ea7416c4aafd4d7f6577dc3a8b42405",
+  "agent_snapshot/pipeline/llm.py": "b3c2123ba71a921ba0a83657cf50b01a970c697f1304ce4710e640c0a6d98d40",
+  "agent_snapshot/pipeline/notes_tools.py": "f75a4c726fda2396da5c7325c37543d6cf63c91d0624ca4355174f1664422de2",
+  "agent_snapshot/pipeline/slack_tools.py": "09fecc81cd630bfbdf569475c557240e7b50554319a968ddb84d11abc1f55ddd",
+  "agent_snapshot/pipeline/system_tools.py": "eebe3114bcb26f6c70eb3b6a7e624c9c8e9f1a405f12a73ca58b3a6e246d16c2",
+  "agent_snapshot/pipeline/tasks_tools.py": "57d9eed975099a4b7259e2ace490dcd84277e1224ab1fa23bb6935c888a7bf31",
+  "cases/build_heldout.py": "4b5fc431372d76016ac05375ce23af90e7db9779936f5a9a6bf6e26018fe3d28",
+  "cases/heldout_cases.jsonl": "8c72e27cc6f63c4988f81f8e1af825b3908845a0efe7a8d6e07ccf999c15d9af",
+  "oracle/heldout_oracle.jsonl": "ee864bdec1689c64c07ecd0eecfecdbae4e399501eabd5fb18ba520a59122c41",
+  "review/heldout_summary.csv": "a4191dfebbff0c69c0e64282bbcc7b59dd64b2498e1e23f055fed277c255b27f",
+  "src/adapter.py": "005b968dfa81e33f0c76464e6b177cdac627e8d94f3a99c89cc949c4ee17ce4b",
+  "src/evaluator.py": "f0569d3cc0da7ddc371409f02fd4ab201242c30a2d45c1eecf9919981a575bdf",
+  "src/freeze.py": "e611ab7d3bfb194a5994604a92011c1f0e38d0d2ce2be78d1077cde05b44da87",
+  "src/lineage.py": "621b57ecf66fe7f6a96e2ffe91aa406c61e7ee63ace4b825d29bb97c6f58cc96",
+  "src/mock_world_base.py": "34ffaf8c4402dd899a6026ecdd7ba1ac8d6e186bb7ab44a3edeadb5d822e4059",
+  "src/policies.py": "91f7b9d50d7deac53015fb6f4709ed3494c03bb89b1c9922900f25ecfbc5e712",
+  "src/run_study.py": "c14bdfafe48d8130ad16469ea9fa7a004565cbfbf8de80fe1f27e8090c3b1068",
+  "src/schemas.py": "a799e11dd6b6e4d4100fd42ba89e3d19dfe619cd896e5fd1979b07a9ae20d14b",
+  "src/schemas_base.py": "ed55ee2b4b119a0956713d464ff54e2e3fc40511d90844be7928d66673b60489",
+  "src/score_study.py": "1894d610be294038a73e8009e2efb9a21b6cd94fc4a4fabcb5200d57eb1ee660",
+  "src/world.py": "0dbd734c2341fcb07ed876978e4f7209345a003bc495a43ffb5568669314cd33"
+ }
+}
