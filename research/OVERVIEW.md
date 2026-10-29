@@ -19,7 +19,7 @@ executions, legitimate task success, false blocks, approval friction, latency, c
 
 ## Run
 ```
-research/run_tests.sh                 # 46 tests, no GPU, no network
+research/run_tests.sh                 # 62 tests, no GPU, no network
 research/run_pilot.sh                 # confirmatory arms and the legacy-loop arm; writes research/results/pilot_*/runs.jsonl
 research/run_followup.sh              # post hoc arms: stop-on-read ablation and mixed tasks (research/results/followup_*)
 python3 -I research/src/report.py research/results/pilot_persia research/results/pilot_gemma12b research/results/pilot_gemma12b_legacy research/results/followup_*
@@ -48,4 +48,4 @@ remains and it matches the `postfix2_*` runs. Hashes of earlier versions identif
 git. Recorded model output is truncated to 2,000 characters per round; planner calls and empty-final recovery text were not stored. Exact historical replay is not claimed.
 `research/src/verify_claims.py` re-scores every run, recomputes every memo figure and replays what was recorded. Run categories: 774 original scored runs (252 confirmatory,
 126 exploratory legacy-loop, 396 post hoc); post-fix re-runs are separate (972 records: 648 first pass, 324 final guard, the latter repeating three arms of the former); the
-bundle's 2,216 records also include development, calibration and audit runs.
+bundle's 2,240 records also include development, calibration and audit runs.
